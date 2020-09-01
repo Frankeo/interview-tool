@@ -1,20 +1,31 @@
-# Leap Year
+# Fizz Buzz
 
 ## Instructions
 
-Implement a method that checks if a year is a leap year.
-The method should return true if a year is a leap year, and false if it is not.
+Write a function that takes positive integers and outputs their string representation.
 
-**All the following rules must be satisfied:**
+**Your function should comply with the following additional rules:**
 
-- A year is not a leap year if not divisible by 4.
-- A year is a leap year if divisible by 4.
-- A year is a leap year if divisible by 400.
-- A year is not a leap year if divisible by 100 but not by 400.
+- If the number is a multiple of three, return the string **Fizz**.
+- If the number is a multiple of five, return the string **Buzz**.
+- If the number is a multiple of both three and five, return the string **FizzBuzz**.
 
-## Examples
+## Example
 
-- 1997 is not a leap year (not divisible by 4).
-- 1996 is a leap year (divisible by 4).
-- 1600 is a leap year (divisible by 400).
-- 1800 is not a leap year (divisible by 4, divisible by 100, NOT divisible by 400).
+ Given the numbers from 1 to 15 in order, the function would return
+
+    1
+    2
+    Fizz
+    4
+    Buzz
+    Fizz
+    7
+    8
+    Fizz
+    Buzz
+    11
+    Fizz
+    13
+    14
+    FizzBuzz

@@ -1,5 +1,7 @@
-export const isLeapYear = (year) => {
-    const isDivisibleBy = (number) => year % number == 0;
-    return isDivisibleBy(100) ? isDivisibleBy(400) : isDivisibleBy(4);
-  };
-  
+export const fizzBuzzTransform = (number) => {
+  let result = "";
+  const isMultipleOf = (value) => number % value == 0;
+  if (isMultipleOf(3)) result += "Fizz";
+  if (isMultipleOf(5)) result += "Buzz";
+  return !result? number.toString() : result;
+};
