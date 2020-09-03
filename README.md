@@ -22,50 +22,62 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Installation and Usage](#usage)
+- [Usage and Extension](#usage)
 - [Deployment](#deployment)
 - [Built Using](#built_using)
 - [Authors](#authors)
 
 ## 🧐 About <a name = "about"></a>
 
-The main idea is to have a collection of easy to extract projects for using in different sandboxes, like codesandbox.io.
+The main idea is to have a collection of easy to extract interview katas and being able to deploy into codesandbox.io.
 
-For achieving this goal, this repo is going to be a **tool**, in which you are going to be able to choose a project and certain level of difficulty for generating a ***zip file*** with the necessary folders to be copy into the sandbox and the correspondent statement.
+For achieving this goal, this repo is going to be a **Tool (Interview CLI)**, in which you are going to be able to choose a project (with or without test already resolved), or pick certain level of difficulty or duration criteria and the tool chooses a random kata and deploy it.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-
-### TBC
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
 For running this repository, you only need **Node Js**
 
-```
+### Installing
 
-```
-
-## 🎈 Installing and Usage <a name="usage"></a>
-
-Difficulty Levels:
- - easy (include the **test folder** and the **src folder** with index.js with the function firm in the **zip file**)
- - normal (include the structure and the config files but there is no content in the folders)
-
-The use is very simple:
-
+First, you need to download the project and install the packages
 ```
 npm i
-npm run zip {project-name} {difficulty-level} 
 ```
+Second, inside the project folder you need to create a linksymb to be able to run the tool globally 
+```
+npm link
+```
+Third, go to another location (one folder back is enough) and check if the command **interview-tool** is available.
+
+## 🎈 Usage and Extension <a name="usage"></a>
+
+```
+interview-tool -p {project-name} [--with-tests]
+```
+
+- **project-name**: Name of the folder/kata project inside the tool directory that you want to deploy.
+
+- **--with-tests**: optional paramter to indicate that you want to deploy a project with tests already resolved, default value: **false**.
+
+- [X] Already implemented
+
+### Draft
+
+```
+interview-tool -d {difficulty-level} | -t {estimated-duration} [--with-tests]
+```
+
+Difficulty Levels:
+
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
 Add Github actions for running every little project tests.
+- [ ] NOT implemented
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-
-### TBD
 
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
