@@ -26,6 +26,7 @@
 - [Deployment](#deployment)
 - [Built Using](#built_using)
 - [Authors](#authors)
+- [New Features](#todos)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -84,3 +85,11 @@ Add Github actions for running every little project tests.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [Francisco Moreno](https://github.com/Frankeo) - Idea & Initial work
+
+## New Features <a name = "todos"></a>
+
+- [ ] Split the logic into multiple files.
+- [ ] Adding more testing.
+- [ ] Adding github actions for building the solution.
+- [ ] Creating and publish package as npm global for usage.
+- [ ] Adding functionality for adding from console new projects base on file for code and file for tests.
