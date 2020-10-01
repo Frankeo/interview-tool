@@ -1,7 +1,7 @@
 const { spawn } = require("child_process");
 const { validateProjectIntegrity } = require("./project-integrity");
 const { createOutputProject } = require("./output-project");
-const { saveInDb, getProjectFromDb } = require("./db/db-management");
+const { saveInDb, getProjectFromDb } = require("../db/db-management");
 
 const addMode = async (params) => {
   const projectInfo = await validateProjectIntegrity(params);

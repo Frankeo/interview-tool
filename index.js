@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const { checkInputSanitization } = require("./sanitize-input");
+const { checkInputSanitization } = require("./src/sanitize-input");
 const { argv } = require("process");
 const {
   ProgramMode
-} = require("./constants");
+} = require("./src/constants");
 const { connectToDb } = require('./db/db-management');
-const { addMode, selectMode } = require('./program-modes');
+const { addMode, selectMode } = require('./src/program-modes');
 
 const main = async () => {
   connectToDb();
