@@ -14,7 +14,7 @@
 
 ---
 
-<p align="center"> This repo contains a list of already resolved and simple exercise for technical interviews.
+<p align="center"> This repo contains a CLI tool for create, deploy and save a exercises for interview.
     <br> 
 </p>
 
@@ -31,7 +31,7 @@
 
 The main idea is to have a collection of easy to extract interview katas and being able to deploy into codesandbox.io.
 
-For achieving this goal, this repo is going to be a **Tool (Interview CLI)**, in which you are going to be able to choose a project (with or without test already resolved), or pick certain level of difficulty or duration criteria and the tool chooses a random kata and deploy it.
+For achieving this goal, this repo is going to be a **Tool (Interview CLI)**, in which you are going to be able to choose a project (with or without test already resolved), or pick certain level of difficulty or topic as criteria and the tool chooses a random kata and deploy it.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -54,23 +54,20 @@ Third, go to another location (one folder back is enough) and check if the comma
 ## 🎈 Usage and Extension <a name="usage"></a>
 
 ```
-interview-tool -p {project-name} [--with-tests]
+interview-tool <command>
 ```
 
-- **project-name**: Name of the folder/kata project inside the tool directory that you want to deploy.
+- ```add <folderName>```: Name of the folder containing the repo that you want to upload
 
-- **--with-tests**: optional paramter to indicate that you want to deploy a project with tests already resolved, default value: **false**.
+- ```list```: Get all the katas/exercise available
 
-- [X] Already implemented
+- ```list```: Get all the katas/exercise available
 
-### Draft
+- ```create <projectName>```: Create a new project folder to work in locally.
 
-```
-interview-tool -d {difficulty-level} | -t {estimated-duration} [--with-tests]
-```
+- ```deploy [-p] [-t] [-d]```: Deploy to CodeSandbox by projectName, Topic or Difficulty
 
-Difficulty Levels:
-
+- ```completion```: Follow the instructions to get autocompletion CLI tool.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
