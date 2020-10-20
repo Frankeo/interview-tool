@@ -1,14 +1,12 @@
 const { createOutputProject } = require("./output-project");
-const {
-  OUTPUT_FOLDER,
-  TEST_FILE,
-  EXERCISE_FILE,
-} = require("./constants");
+const { OUTPUT_FOLDER, TEST_FILE, EXERCISE_FILE } = require("../constants");
 
 const fs = require("fs-extra");
 jest.mock("fs-extra");
 const path = require("path");
 jest.mock("path");
+require('find-up');
+jest.mock("find-up");
 
 describe("createOutputProject function", () => {
   const testKey = `${OUTPUT_FOLDER}/${TEST_FILE}`;

@@ -6,7 +6,7 @@ const {
   WRONG_DIFFICULTY_LEVEL,
   WRONG_TOPIC,
   PACKAGE_JSON_FILE,
-} = require("./constants");
+} = require("../constants");
 const fs = require("fs-extra");
 
 jest.mock("fs-extra");
@@ -15,27 +15,6 @@ describe("checkFolderExists function", () => {
   beforeEach(() => {
     fs.pathExists.mockReturnValue(true);
     fs.readJSON.mockReturnValue({ keywords: ["easy", "numbers"] });
-  });
-
-  test("should throw FOLDER_NOT_FOUND when the folder doesn't exist", () => {
-    fs.pathExists.mockReturnValue(false);
-    expect(
-      async () => await validateProjectIntegrity("SomeFolder")
-    ).rejects.toThrowError(FOLDER_NOT_FOUND);
-  });
-
-  test("should NOT throw FOLDER_NOT_FOUND when the folder exists", () => {
-    fs.pathExists.mockReturnValue(true);
-    expect(
-      async () => await validateProjectIntegrity("SomeFolder")
-    ).not.toThrowError();
-  });
-
-  test("should create a projectName equal to folderName without '/'", async () => {
-    fs.pathExists.mockReturnValue(true);
-    const folderName = "SomeFolder";
-    const { projectName } = await validateProjectIntegrity(folderName + "/");
-    expect(projectName).toBe(folderName);
   });
 
   test("should throw PACKAGE_JSON_NOT_FOUND when package.json doesn't exist", () => {

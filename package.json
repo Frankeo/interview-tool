@@ -5,7 +5,8 @@
   "bin": "./index.js",
   "scripts": {
     "ship": "codesandbox src/output/",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,12 @@
   },
   "homepage": "https://github.com/Frankeo/interview-challenges#readme",
   "dependencies": {
-    "@babel/preset-env": "7.11.5",
     "@types/jest": "26.0.12",
-    "babel-jest": "26.3.0",
     "codesandbox": "2.1.16",
+    "find-up": "5.0.0",
     "fs-extra": "9.0.1",
     "jest": "26.4.2",
-    "sqlite3": "5.0.0"
+    "sqlite3": "5.0.0",
+    "yargs": "16.0.3"
   }
 }
