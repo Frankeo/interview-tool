@@ -7,7 +7,8 @@
     "ship": "codesandbox src/output/",
     "test": "jest --watch",
     "test:ci": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "test:badges": "npm run coverage  && jest-coverage-badges"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "find-up": "5.0.0",
     "fs-extra": "9.0.1",
     "jest": "26.4.2",
+    "jest-coverage-badges": "1.1.2",
     "sqlite3": "5.0.0",
     "yargs": "16.0.3"
   }
