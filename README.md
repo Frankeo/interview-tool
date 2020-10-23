@@ -9,10 +9,11 @@
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-![](./coverage/badge-branches.svg)
-![](./coverage/badge-functions.svg)
-![](./coverage/badge-lines.svg)
-![](./coverage/badge-statements.svg)
+[![BuildStatus](#buildstatus#)]()
+[![Statements](#statements#)]() 
+[![Branches](#branches#)]() 
+[![Functions](#functions#)]()
+[![Lines](#lines#)]()
 
 </div>
 
