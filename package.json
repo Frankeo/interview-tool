@@ -6,6 +6,7 @@
   "scripts": {
     "ship": "codesandbox src/output/",
     "test": "jest --watch",
+    "test:ci": "jest",
     "coverage": "jest --coverage"
   },
   "repository": {
