@@ -1,6 +1,6 @@
 {
   "name": "interview-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "<p align=\"center\">\r   <a href=\"\" rel=\"noopener\">\r  <img width=200px height=200px src=\"https://i.imgur.com/6wj0hh6.jpg\" alt=\"Project logo\"></a>\r </p>",
   "bin": "./index.js",
   "scripts": {
@@ -8,7 +8,9 @@
     "test": "jest --watch",
     "test:ci": "jest",
     "coverage": "jest --coverage",
-    "test:badges": "npm run coverage  && jest-coverage-badges"
+    "make-readme": "npm run coverage  && jest-badges-readme",
+    "prebuild": "echo false > .buildstatus",
+    "postbuild": "echo true > .buildstatus"
   },
   "repository": {
     "type": "git",
@@ -30,8 +32,10 @@
     "find-up": "5.0.0",
     "fs-extra": "9.0.1",
     "jest": "26.4.2",
-    "jest-coverage-badges": "1.1.2",
     "sqlite3": "5.0.0",
     "yargs": "16.0.3"
+  },
+  "devDependencies": {
+    "@olavoparno/jest-badges-readme": "^1.5.1"
   }
 }
