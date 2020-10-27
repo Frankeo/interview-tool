@@ -12,11 +12,9 @@
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 ![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
 ![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
+![Last commit](https://img.shields.io/github/last-commit/Frankeo/interview-challenges)
+![Repo Release](https://img.shields.io/github/release-date/Frankeo/interview-challenges)
 ![Repo Size](https://img.shields.io/github/repo-size/Frankeo/interview-challenges)
-
-
-
-
 </div>
 
 ---
