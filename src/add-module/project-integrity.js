@@ -14,22 +14,44 @@ const {
 } = require("../constants");
 const path = require("path");
 const { cwd } = require("process");
+const { spawnSync } = require("child_process");
 
 /**
  * @param  {string} projectFolder
  * @returns {projectInfo}
  */
 const validateProjectIntegrity = async (projectFolder) => {
-    const { topic, difficulty } = await validateProjectDifficultyAndTopic(projectFolder);
-    return getProjectInfo(projectFolder, topic, difficulty);
+    const projectPath = path.resolve(cwd(), projectFolder);
+    const { topic, difficulty } = await validateProjectDifficultyAndTopic(projectPath);
+    runTestsOverProject(projectPath);
+    return getProjectInfo(projectPath, topic, difficulty);
 }
 
 
 /**
- * @param  {string} folderName
+ * @param  {string} projectPath
  */
-const validateProjectDifficultyAndTopic = async (folderName) => {
-  const packagePath = path.resolve(cwd(), folderName, PACKAGE_JSON_FILE);
+const runTestsOverProject = (projectPath) => {
+  const installResult = spawnSync("npm", ["install"], {
+    cwd: projectPath,
+    stdio: "inherit",
+  });
+
+  if (installResult.status) throw Error("ERROR");
+
+  const testResult = spawnSync("npm", ["test"], {
+    cwd: projectPath,
+    stdio: "inherit"
+  });
+
+  if (testResult.status) throw Error("ERROR");
+}
+
+/**
+ * @param  {string} projectPath
+ */
+const validateProjectDifficultyAndTopic = async (projectPath) => {
+  const packagePath = path.resolve(projectPath, PACKAGE_JSON_FILE);
   if(!(await fs.pathExists(packagePath))) throw new Error(PACKAGE_JSON_NOT_FOUND);
 
   const { keywords } = await fs.readJSON(packagePath);
@@ -50,14 +72,14 @@ const validateProjectDifficultyAndTopic = async (folderName) => {
 };
 
 /**
- * @param  {string} folderName
+ * @param  {string} projectPath
  * @returns {projectInfo}
  */
-const getProjectInfo = async (folderName, topic, difficulty) => {
-  const indexFile = await getFile(folderName, SRC_FILE, SRC_NOT_FOUND_ERROR);
-  const testFile = await getFile(folderName, TEST_FILE, "error2");
-  const exerciseFile = await getFile(folderName, EXERCISE_FILE, "error3");
-  const projectName = folderName.replace('/', '');
+const getProjectInfo = async (projectPath, topic, difficulty) => {
+  const indexFile = await getFile(projectPath, SRC_FILE, SRC_NOT_FOUND_ERROR);
+  const testFile = await getFile(projectPath, TEST_FILE, "error2");
+  const exerciseFile = await getFile(projectPath, EXERCISE_FILE, "error3");
+  const projectName = projectPath.replace(/\/$/, "").split("/").pop();
   return {
     mainFile: indexFile,
     testFile,
@@ -68,12 +90,13 @@ const getProjectInfo = async (folderName, topic, difficulty) => {
   }
 }
 
-const getFile = async (folderName, fileName, error) => {
-  const filePath = path.resolve(cwd(), folderName, fileName);
+const getFile = async (projectPath, fileName, error) => {
+  const filePath = path.resolve(projectPath, fileName);
   if(!(await fs.pathExists(filePath))) throw new Error(error);
   return fs.readFile(filePath);
 }
 
 module.exports = {
-    validateProjectIntegrity
+    validateProjectIntegrity,
+    runTestsOverProject
 }

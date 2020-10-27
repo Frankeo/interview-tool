@@ -7,8 +7,8 @@
 
 <div align="center">
 
-![Node.js CI](https://github.com/Frankeo/interview-challenges/workflows/Node.js%20CI/badge.svg?branch=master)
-![Node.js Package](https://github.com/Frankeo/interview-challenges/workflows/Node.js%20Package/badge.svg?branch=master)
+![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
+![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 ![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
 ![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
