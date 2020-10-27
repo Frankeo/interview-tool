@@ -8,7 +8,7 @@
     "test": "jest --watch",
     "test:ci": "jest",
     "coverage": "jest --coverage",
-    "make-readme": "npm run coverage  && cat ./tests/coverage/lcov.info | coveralls"
+    "make-readme": "npm run coverage && coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
