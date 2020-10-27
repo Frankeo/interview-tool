@@ -7,13 +7,15 @@
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-[![BuildStatus](#buildstatus#)]()
-[![Statements](#statements#)]() 
-[![Branches](#branches#)]() 
-[![Functions](#functions#)]()
-[![Lines](#lines#)]()
+![Node.js CI](https://github.com/Frankeo/interview-challenges/workflows/Node.js%20CI/badge.svg?branch=master)
+![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
+![Node.js Package](https://github.com/Frankeo/interview-challenges/workflows/Node.js%20Package/badge.svg?branch=master)
+![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
+![Repo Size](https://img.shields.io/github/repo-size/Frankeo/interview-challenges)
+![Coverage Status](https://coveralls.io/repos/github/Frankeo/interview-challenges/badge.svg?branch=master)
+
+
+
 
 </div>
 

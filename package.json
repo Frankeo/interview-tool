@@ -1,6 +1,6 @@
 {
   "name": "interview-tool",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "<p align=\"center\">\r   <a href=\"\" rel=\"noopener\">\r  <img width=200px height=200px src=\"https://i.imgur.com/6wj0hh6.jpg\" alt=\"Project logo\"></a>\r </p>",
   "bin": "./index.js",
   "scripts": {
@@ -8,9 +8,7 @@
     "test": "jest --watch",
     "test:ci": "jest",
     "coverage": "jest --coverage",
-    "make-readme": "npm run coverage  && jest-badges-readme",
-    "prebuild": "echo false > .buildstatus",
-    "postbuild": "echo true > .buildstatus"
+    "make-readme": "npm run coverage  && cat ./tests/coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -36,6 +34,6 @@
     "yargs": "16.0.3"
   },
   "devDependencies": {
-    "@olavoparno/jest-badges-readme": "^1.5.1"
+    "coveralls": "3.1.0"
   }
 }
