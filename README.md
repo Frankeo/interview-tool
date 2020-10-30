@@ -10,16 +10,13 @@
 ![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
 ![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
-![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
 ![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
 ![Last commit](https://img.shields.io/github/last-commit/Frankeo/interview-challenges)
-![Repo Release](https://img.shields.io/github/release-date/Frankeo/interview-challenges)
-![Repo Size](https://img.shields.io/github/repo-size/Frankeo/interview-challenges)
 </div>
 
 ---
 
-<p align="center"> This repo contains a CLI tool for create, deploy and save a exercises for interview.
+<p align="center"> This repo contains a CLI tool for create, deploy and save a exercises for interviews.
     <br> 
 </p>
 
@@ -37,7 +34,9 @@
 
 The main idea is to have a collection of easy to extract interview katas and being able to deploy into codesandbox.io.
 
-For achieving this goal, this repo is going to be a **Tool (Interview CLI)**, in which you are going to be able to choose a project (with or without test already resolved), or pick certain level of difficulty or topic as criteria and the tool chooses a random kata and deploy it.
+For achieving this goal, this repo is going to be a **CLI (interview-tool)**, in which you are going to be able to choose a project (with or without tests already resolved), or pick certain level of difficulty or topic as criteria and the tool chooses a random kata and deploy it.
+
+You also are going to be able to create new template projects and later on adding to the collection of already resolved tests.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -45,7 +44,15 @@ For achieving this goal, this repo is going to be a **Tool (Interview CLI)**, in
 
 For running this repository, you only need **Node Js**
 
-### Installing
+### Installation
+
+Only need to run 
+```
+npm install -g interview-tool
+```
+And that's it!!
+
+### Debugging
 
 First, you need to download the project and install the packages
 ```
@@ -67,8 +74,6 @@ interview-tool <command>
 
 - ```list```: Get all the katas/exercise available
 
-- ```list```: Get all the katas/exercise available
-
 - ```create <projectName>```: Create a new project folder to work in locally.
 
 - ```deploy [-p] [-t] [-d]```: Deploy to CodeSandbox by projectName, Topic or Difficulty
@@ -77,12 +82,18 @@ interview-tool <command>
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add Github actions for running every little project tests.
-- [ ] NOT implemented
+Github Actions for package it into npm.org
+
+![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
+![Repo Release](https://img.shields.io/github/release-date/Frankeo/interview-challenges)
+![Repo Size](https://img.shields.io/github/repo-size/Frankeo/interview-challenges)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 - [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Yargs]() - Command Parser
+- [CodeSandbox]() - Exercise release environment
+- [SQLite]() - Local exercise DB
 
 ## ✍️ Authors <a name = "authors"></a>
 
@@ -90,8 +101,10 @@ Add Github actions for running every little project tests.
 
 ## New Features <a name = "todos"></a>
 
-- [ ] Split the logic into multiple files.
-- [ ] Adding more testing.
-- [ ] Adding github actions for building the solution.
-- [ ] Creating and publish package as npm global for usage.
-- [ ] Adding functionality for adding from console new projects base on file for code and file for tests.
+- [ ] Adding more unit testing.
+- [ ] Testing on Windows.
+- [ ] Adding better log information.
+- [ ] Adding support for generate document on readme (to PDF format) in every internal project.
+- [X] Check project status before saving.
+- [ ] Avoid adding duplicated projects
+- [ ] Define general standards.
