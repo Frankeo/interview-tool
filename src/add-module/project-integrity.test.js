@@ -1,4 +1,4 @@
-const { validateProjectIntegrity } = require("./project-integrity");
+const { validateProjectIntegrity, runTestsOverProject } = require("./project-integrity");
 const {
   FOLDER_NOT_FOUND,
   PACKAGE_JSON_NOT_FOUND,
@@ -8,8 +8,10 @@ const {
   PACKAGE_JSON_FILE,
 } = require("../constants");
 const fs = require("fs-extra");
-
 jest.mock("fs-extra");
+
+const { spawnSync } = require("child_process");
+jest.mock("child_process");
 
 describe("checkFolderExists function", () => {
   beforeEach(() => {
@@ -75,3 +77,35 @@ describe("checkFolderExists function", () => {
     ).rejects.toThrowError(WRONG_TOPIC);
   });
 });
+
+describe('runTestsOverProject function', () => {
+  beforeEach(() => {
+    spawnSync.mockClear();
+  });
+
+  test('should return an exception when installStatus is different form 0', () => {
+    spawnSync.mockImplementation((_, keyword) => {
+      if (keyword == "install") return { status: 1};
+    });
+    expect(async () => runTestsOverProject()).rejects.toThrowError();
+  });
+
+  test('should return an exception when testStatus is different form 0', () => {
+    spawnSync.mockImplementation((_, keyword) => {
+      if (keyword == "install") return { status: 0};
+      if (keyword == "test") return { status: 1};
+    });
+    expect(async () => runTestsOverProject()).rejects.toThrowError();
+  });
+
+  test('should NO return anything when installStatus and testStatus is equal to 0', () => {
+    spawnSync.mockImplementation((_, keyword) => {
+      if (keyword == "install") return { status: 0};
+      if (keyword == "test") return { status: 0};
+    });
+
+    runTestsOverProject();
+
+    expect(spawnSync).toBeCalledTimes(2);
+  });
+})
