@@ -101,10 +101,11 @@ Github Actions for package it into npm.org
 
 ## New Features <a name = "todos"></a>
 
-- [ ] Adding more unit testing.
+- [X] Adding more unit testing.
 - [ ] Testing on Windows.
-- [ ] Adding better log information.
+- [X] Adding better log information.
 - [ ] Adding support for generate document on readme (to PDF format) in every internal project.
 - [X] Check project status before saving.
 - [ ] Avoid adding duplicated projects
 - [ ] Define general standards.
+- [ ] Adding a better documentation and README
