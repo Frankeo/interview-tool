@@ -1,11 +1,8 @@
 <center>
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</center>
 
-<h3 align="center">Interview Tool</h3>
+![logo](images/project-logo.jpeg)
 
-<center>
+### Interview Tool
 
 ![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
 ![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
@@ -13,24 +10,23 @@
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 ![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
 ![Last commit](https://img.shields.io/github/last-commit/Frankeo/interview-challenges)
-</center>
 
 ---
 
-<center> This repo contains a CLI tool for create, save and deploy exercises for interviews.
+This repo contains a CLI tool for create, save and deploy exercises for interviews.
 </center>
 
 ## :pencil: Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Built Using](#built_using)
-- [New Features](#todos)
-- [Authors](#authors)
+- [About](https://github.com/Frankeo/interview-challenges#-about)
+- [Getting Started](https://github.com/Frankeo/interview-challenges#-getting_started)
+- [Usage](https://github.com/Frankeo/interview-challenges#-usage)
+- [Deployment](https://github.com/Frankeo/interview-challenges#-deployment)
+- [Built Using](https://github.com/Frankeo/interview-challenges#-built_using)
+- [New Features](https://github.com/Frankeo/interview-challenges#-todos)
+- [Authors](https://github.com/Frankeo/interview-challenges#-authors)
 
-## :mag: About <a name = "about"></a>
+## :mag: About
 
 The main idea is to have a collection of easy to extract __interview code challenges__ and being able to deploy them into [codesandbox](https://codesandbox.io).
 
@@ -40,7 +36,7 @@ Also, let you add/save already started projects to your interview list, followin
 
 All the projects into your **interview list** are able to be deploy! you have multiple [criteria selection](), even a random one for avoiding favoritism problems! 😎
 
-## :checkered_flag: Getting Started <a name = "getting_started"></a>
+## :checkered_flag: Getting Started
 
 ### Prerequisites
 
@@ -70,7 +66,7 @@ npm link
 
 - 4º **That's all!** Your code changes are going to take effect over the commands executed by the tool! 🤓
 
-## :balloon: Usage <a name="usage"></a>
+## :balloon: Usage
 
 For a more [detailed documentation and examples]()
 
@@ -88,7 +84,7 @@ interview-tool <command>
 
 - ```completion```: Follow the instructions to get autocompletion CLI tool.
 
-## :rocket: Deployment <a name = "deployment"></a>
+## :rocket: Deployment
 
 Github Actions for creating a [npm](https://www.npm.org) package
 
@@ -97,18 +93,20 @@ Github Actions for creating a [npm](https://www.npm.org) package
 ![Size](https://img.shields.io/bundlephobia/min/interview-tool)
 ![Downloads](https://img.shields.io/npm/dm/interview-tool)
 
-## :pick: Built Using <a name = "built_using"></a>
+## :pick: Built Using
 
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 - [Yargs](http://yargs.js.org/) - Command Parser
 - [CodeSandbox](https://codesandbox.io) - Exercise release environment
 - [SQLite](https://www.sqlite.org/index.html) - Local exercise DB
 
-## :crossed_fingers: New Features <a name = "todos"></a>
+## :crossed_fingers: New Features
 
 :white_large_square: Adding more unit testing.
 
-:white_large_square: Testing on Windows.
+:white_large_square: Manual Testing on Windows.
+
+:white_large_square: Manual Testing on Linux (Ubuntu and Debian).
 
 :white_large_square: Adding better log information.
 
@@ -118,8 +116,26 @@ Github Actions for creating a [npm](https://www.npm.org) package
 
 :white_large_square: Avoid adding duplicated projects
 
-:white_large_square: Define general standards.
+:white_large_square: Setting **Dependabot** for the project.
 
-## :writing_hand: Authors <a name="authors"></a>
+:white_large_square: Create Integration test for avoid repeat manual testing over different OS.
+
+:white_large_square: Install **Eslint** and define Standard.
+
+:white_large_square: Define **License** for the project.
+
+:white_large_square: Add multiple projects in batch when contained in the same folder.
+
+:white_large_square: Install **Husky** for prepush and avoid upload wrong code.
+
+:white_large_square: Adding **Changelog** tracking in user documentation.
+
+:white_large_square: Track Analytics usage of the CLI.
+
+:white_large_square: Create Github Page for user Documentation.
+
+:white_large_square: Create Wiki for developer easy rampage.
+
+## :writing_hand: Authors
 
 - [Francisco Moreno](https://github.com/Frankeo) - Idea & Initial work
