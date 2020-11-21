@@ -20,6 +20,8 @@ const execa = require("execa");
 jest.mock("execa");
 
 describe('validateProjectDifficultyAndTopic function', () => {
+  const projectPath = "SomeFolder";
+
   beforeEach(() => {
     fs.pathExists.mockReturnValue(true);
     path.resolve = jest.fn((_, second) => second);
@@ -30,7 +32,6 @@ describe('validateProjectDifficultyAndTopic function', () => {
     fs.pathExists.mockImplementation(
       (path) => !path.includes(PACKAGE_JSON_FILE)
     );
-    const projectPath = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(PACKAGE_JSON_NOT_FOUND);
@@ -38,7 +39,6 @@ describe('validateProjectDifficultyAndTopic function', () => {
 
   test("should throw CATEGORIZATION_ERROR when package.json doesn't have keywords", () => {
     fs.readJSON.mockReturnValue({});
-    const projectPath = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
@@ -46,7 +46,6 @@ describe('validateProjectDifficultyAndTopic function', () => {
 
   test("should throw CATEGORIZATION_ERROR when package.json has empty keywords", () => {
     fs.readJSON.mockReturnValue({ keywords: [] });
-    const projectPath = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
@@ -54,7 +53,6 @@ describe('validateProjectDifficultyAndTopic function', () => {
 
   test("should throw CATEGORIZATION_ERROR when package.json has more than 2 keywords", () => {
     fs.readJSON.mockReturnValue({ keywords: ["1", "2", "3"] });
-    const projectPath = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
@@ -62,7 +60,6 @@ describe('validateProjectDifficultyAndTopic function', () => {
 
   test("should throw WRONG_DIFFICULTY_LEVEL when first keyword is not valid difficulty", () => {
     fs.readJSON.mockReturnValue({ keywords: ["invalid", "2"] });
-    const projectPath = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(WRONG_DIFFICULTY_LEVEL);
@@ -70,11 +67,10 @@ describe('validateProjectDifficultyAndTopic function', () => {
 
   test("should throw WRONG_TOPIC when second keyword is not valid topic", () => {
     fs.readJSON.mockReturnValue({ keywords: ["easy", "invalid"] });
-    const folderName = "SomeFolder";
     expect(
       async () => await validateProjectDifficultyAndTopic(folderName)
     ).rejects.toThrowError(WRONG_TOPIC);
-  });  
+  });
 });
 
 describe("runTestsOverProject function", () => {
