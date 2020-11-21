@@ -105,3 +105,6 @@ dist
 
 # DBs
 *.db
+
+# output folder
+src/output/

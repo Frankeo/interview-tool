@@ -8,7 +8,6 @@
 ![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
-![License](https://img.shields.io/github/license/Frankeo/interview-challenges)
 ![Last commit](https://img.shields.io/github/last-commit/Frankeo/interview-challenges)
 
 ---
@@ -102,13 +101,13 @@ Github Actions for creating a [npm](https://www.npm.org) package
 
 ## :crossed_fingers: New Features
 
-:white_large_square: Adding more unit testing.
+:heavy_check_mark: Adding more unit testing.
 
 :white_large_square: Manual Testing on Windows.
 
 :white_large_square: Manual Testing on Linux (Ubuntu and Debian).
 
-:white_large_square: Adding better log information.
+:heavy_check_mark: Adding better log information.
 
 :white_large_square: Adding support for generate document on readme (to PDF format) in every internal project.
 
@@ -116,13 +115,13 @@ Github Actions for creating a [npm](https://www.npm.org) package
 
 :white_large_square: Avoid adding duplicated projects
 
-:white_large_square: Setting **Dependabot** for the project.
+:heavy_check_mark: Setting **Dependabot** for the project.
 
 :white_large_square: Create Integration test for avoid repeat manual testing over different OS.
 
 :white_large_square: Install **Eslint** and define Standard.
 
-:white_large_square: Define **License** for the project.
+:heavy_check_mark: Define **License** for the project.
 
 :white_large_square: Add multiple projects in batch when contained in the same folder.
 

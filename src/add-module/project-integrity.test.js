@@ -1,6 +1,9 @@
-const { validateProjectIntegrity, runTestsOverProject } = require("./project-integrity");
 const {
-  FOLDER_NOT_FOUND,
+  validateProjectDifficultyAndTopic,
+  runTestsOverProject,
+  getFile,
+} = require("./project-integrity");
+const {
   PACKAGE_JSON_NOT_FOUND,
   CATEGORIZATION_ERROR,
   WRONG_DIFFICULTY_LEVEL,
@@ -10,12 +13,18 @@ const {
 const fs = require("fs-extra");
 jest.mock("fs-extra");
 
-const { spawnSync } = require("child_process");
-jest.mock("child_process");
+const path = require("path");
+jest.mock("path");
 
-describe("checkFolderExists function", () => {
+const execa = require("execa");
+jest.mock("execa");
+
+describe('validateProjectDifficultyAndTopic function', () => {
+  const projectPath = "SomeFolder";
+
   beforeEach(() => {
     fs.pathExists.mockReturnValue(true);
+    path.resolve = jest.fn((_, second) => second);
     fs.readJSON.mockReturnValue({ keywords: ["easy", "numbers"] });
   });
 
@@ -23,89 +32,98 @@ describe("checkFolderExists function", () => {
     fs.pathExists.mockImplementation(
       (path) => !path.includes(PACKAGE_JSON_FILE)
     );
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(PACKAGE_JSON_NOT_FOUND);
   });
 
   test("should throw CATEGORIZATION_ERROR when package.json doesn't have keywords", () => {
     fs.readJSON.mockReturnValue({});
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
   });
 
   test("should throw CATEGORIZATION_ERROR when package.json has empty keywords", () => {
     fs.readJSON.mockReturnValue({ keywords: [] });
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
   });
 
   test("should throw CATEGORIZATION_ERROR when package.json has more than 2 keywords", () => {
     fs.readJSON.mockReturnValue({ keywords: ["1", "2", "3"] });
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(CATEGORIZATION_ERROR);
   });
 
   test("should throw WRONG_DIFFICULTY_LEVEL when first keyword is not valid difficulty", () => {
     fs.readJSON.mockReturnValue({ keywords: ["invalid", "2"] });
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(WRONG_DIFFICULTY_LEVEL);
   });
 
   test("should throw WRONG_TOPIC when second keyword is not valid topic", () => {
     fs.readJSON.mockReturnValue({ keywords: ["easy", "invalid"] });
-    const folderName = "SomeFolder";
     expect(
-      async () => await validateProjectIntegrity(folderName)
-    ).rejects.toThrowError(WRONG_TOPIC);
-  });
-
-  test("should throw WRONG_TOPIC when second keyword is not valid topic", () => {
-    fs.readJSON.mockReturnValue({ keywords: ["easy", "invalid"] });
-    const folderName = "SomeFolder";
-    expect(
-      async () => await validateProjectIntegrity(folderName)
+      async () => await validateProjectDifficultyAndTopic(folderName)
     ).rejects.toThrowError(WRONG_TOPIC);
   });
 });
 
-describe('runTestsOverProject function', () => {
+describe("runTestsOverProject function", () => {
   beforeEach(() => {
-    spawnSync.mockClear();
+    jest.clearAllMocks();
   });
 
-  test('should return an exception when installStatus is different form 0', () => {
-    spawnSync.mockImplementation((_, keyword) => {
-      if (keyword == "install") return { status: 1};
+  test("should return an Error when install throw an Error", () => {
+    const error = "error";
+    execa.mockImplementation((_, keyword) => {
+      if (keyword == "install") throw new Error(error);
     });
-    expect(async () => runTestsOverProject()).rejects.toThrowError();
+    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(error);
   });
 
-  test('should return an exception when testStatus is different form 0', () => {
-    spawnSync.mockImplementation((_, keyword) => {
-      if (keyword == "install") return { status: 0};
-      if (keyword == "test") return { status: 1};
+  test("should return an Error when tests throw an Error", () => {
+    const error = "error";
+    execa.mockImplementation((_, keyword) => {
+      if (keyword == "test") throw new Error(error);
     });
-    expect(async () => runTestsOverProject()).rejects.toThrowError();
+    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(error);
   });
 
-  test('should NO return anything when installStatus and testStatus is equal to 0', () => {
-    spawnSync.mockImplementation((_, keyword) => {
-      if (keyword == "install") return { status: 0};
-      if (keyword == "test") return { status: 0};
+  test("should NO return anything when install and test are OK", async () => {
+    execa.mockReset();
+    execa.mockImplementation((_, keyword) => {
+      if (keyword == "install") return Promise.resolve();
+      if (keyword == "test") return Promise.resolve();
     });
+    await runTestsOverProject().run();
 
-    runTestsOverProject();
-
-    expect(spawnSync).toBeCalledTimes(2);
+    expect(execa).toBeCalledTimes(2);
   });
-})
+});
+
+describe("getFile function", () => {
+  beforeEach(() => {
+    path.resolve.mockReturnValue("someString");
+  });
+
+  test("should throw an error when the path does not exist", () => {
+    const error = "error";
+    fs.pathExists.mockReturnValue(Promise.resolve(false));
+    expect(
+      async () => await getFile("projectPath", "fileName", error)
+    ).rejects.toThrowError(error);
+  });
+
+  test("should return the file content when the path exists", async () => {
+    const fileContent = "";
+    fs.readFile.mockReturnValue(fileContent);
+    fs.pathExists.mockReturnValue(Promise.resolve(true));
+    const result = await getFile("projectPath", "fileName", "error");
+    expect(result).toBe(fileContent);
+  });
+});

@@ -1,9 +1,14 @@
-const { selectProjectByCriteria, selectProjectByName } = require('../db/db-management');
-const { createOutputProject } = require('../services/output-project');
-const { deployProjectToCodeSandbox } = require('../services/deploy');
-const { topics, difficultyLevel } = require('../constants');
+const {
+  selectProjectByCriteria,
+  selectProjectByName,
+} = require("../db/db-management");
+const { createOutputProject } = require("../services/output-project");
+const { deployProjectToCodeSandbox } = require("../services/deploy");
+const { topics, difficultyLevel } = require("../constants");
+const { logError } = require("../services/formatting");
+const Listr = require("listr");
 
-exports.command = "deploy [-t] [-d] [-p]";
+exports.command = "deploy [-t] [-d] [-p] [noTests]";
 
 exports.describe = "deploy a project by NAME or by TOPIC or DIFFICULTY";
 
@@ -14,8 +19,8 @@ exports.builder = (yargs) =>
   yargs
     .option("p", {
       alias: "project",
-      type: 'string',
-      description: "search project by name"
+      type: "string",
+      description: "search project by name",
     })
     .option("t", {
       alias: "topic",
@@ -34,17 +39,30 @@ exports.builder = (yargs) =>
     });
 
 /**
- * @param  {string} topic
- * @param  {string} difficulty
- * @param  {string} project
- * @param  {boolean} noTests
+ * @param  {deployProjectInfo}
  */
 exports.handler = async ({ topic, difficulty, project, noTests }) => {
-  let projectInfo;
-  if (project) 
-    projectInfo = await selectProjectByName(project);
-  else 
-    projectInfo = await selectProjectByCriteria(topic, difficulty);
-  await createOutputProject(projectInfo, noTests);
-  deployProjectToCodeSandbox();
+  try {
+    let projectInfo;
+    await new Listr([
+      {
+        title: "Searching project on DB",
+        task: async () => {
+          projectInfo = project
+            ? await selectProjectByName(project)
+            : await selectProjectByCriteria(topic, difficulty);
+          if (!projectInfo) throw new Error("project not found");
+        },
+      },
+      {
+        title: "Formatting project for deploy",
+        task: async () => {
+          await createOutputProject(projectInfo, noTests);
+        },
+      }
+    ]).run();
+    deployProjectToCodeSandbox();
+  } catch (error) {
+    logError(error);
+  }
 };
