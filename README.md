@@ -9,8 +9,11 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-challenges/badge)](https://www.codefactor.io/repository/github/frankeo/interview-challenges)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
@@ -164,7 +167,6 @@ folder.
 ## :writing_hand: Authors
 
 - [Francisco Moreno](https://github.com/Frankeo) - Idea & Initial work
-
 
 ## Contributors ✨
 
