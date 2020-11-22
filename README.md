@@ -1,24 +1,26 @@
-<div style="text-align: center">
+<p align="center">
+  <img width="200" height="200" src="images/project-logo.jpeg">
+</p>
 
-![logo](images/project-logo.jpeg)
-
-### Interview Tool
+## Interview Tool
 
 ![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
 ![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-challenges/badge)](https://www.codefactor.io/repository/github/frankeo/interview-challenges)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
-
+<p align="center">
 This repo contains a CLI tool for create, save and deploy exercises for
 interviews.
-
-</div>
+</p>
 
 ## :pencil: Table of Contents
 
@@ -164,7 +166,6 @@ folder.
 ## :writing_hand: Authors
 
 - [Francisco Moreno](https://github.com/Frankeo) - Idea & Initial work
-
 
 ## Contributors ✨
 
