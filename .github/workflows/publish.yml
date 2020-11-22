@@ -19,7 +19,7 @@ jobs:
       - run: npm run test:ci
       - run: npm run make-readme
 
-  publish-npm: 
+  publish-npm:
     needs: build
     runs-on: ubuntu-latest
     steps:
