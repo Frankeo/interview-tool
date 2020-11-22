@@ -17,6 +17,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
+
 <p align="center">
 This repo contains a CLI tool for create, save and deploy exercises for
 interviews.
