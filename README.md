@@ -1,8 +1,8 @@
-<div style="text-align: center">
+<p align="center">
+  <img width="200" height="200" src="images/project-logo.jpeg">
+</p>
 
-![logo](images/project-logo.jpeg)
-
-### Interview Tool
+## Interview Tool
 
 ![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
 ![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
@@ -17,11 +17,10 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
-
+<p align="center">
 This repo contains a CLI tool for create, save and deploy exercises for
 interviews.
-
-</div>
+</p>
 
 ## :pencil: Table of Contents
 
