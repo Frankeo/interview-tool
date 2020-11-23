@@ -8,17 +8,6 @@ on:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm run test:ci
-      - run: npm run make-readme
-
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -41,7 +30,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@Frankeo'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.package_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
