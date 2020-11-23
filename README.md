@@ -7,7 +7,7 @@
 ![Build](https://github.com/Frankeo/interview-challenges/workflows/Build/badge.svg)
 ![Publish](https://github.com/Frankeo/interview-challenges/workflows/Publish/badge.svg)
 ![CodeQL](https://github.com/Frankeo/interview-challenges/workflows/CodeQL/badge.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-challenges/badge)](https://www.codefactor.io/repository/github/frankeo/interview-challenges)
+[![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-tool/badge)](https://www.codefactor.io/repository/github/frankeo/interview-tool)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)
 
