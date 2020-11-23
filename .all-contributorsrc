@@ -13,10 +13,19 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "mceledm",
+      "name": "María Celeste de Majo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8907724?v=4",
+      "profile": "https://github.com/mceledm",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "interview-challenges",
+  "projectName": "interview-tool",
   "projectOwner": "Frankeo",
   "repoType": "github",
   "repoHost": "https://github.com",

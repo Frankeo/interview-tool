@@ -7,13 +7,13 @@
 ![Build](https://github.com/Frankeo/interview-challenges/workflows/Build/badge.svg)
 ![Publish](https://github.com/Frankeo/interview-challenges/workflows/Publish/badge.svg)
 ![CodeQL](https://github.com/Frankeo/interview-challenges/workflows/CodeQL/badge.svg)
-[![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-tool/badge)](https://www.codefactor.io/repository/github/frankeo/interview-tool)
+![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-tool/badge)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
-[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)
+![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -179,7 +179,8 @@ Thanks goes to these wonderful people
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://tnovau.github.io"><img src="https://avatars1.githubusercontent.com/u/18268934?v=4" width="100px;" alt=""/><br /><sub><b>Tomás Novau</b></sub></a><br /><a href="https://github.com/Frankeo/interview-challenges/pulls?q=is%3Apr+reviewed-by%3Atnovau" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://tnovau.github.io"><img src="https://avatars1.githubusercontent.com/u/18268934?v=4" width="100px;" alt=""/><br /><sub><b>Tomás Novau</b></sub></a><br /><a href="https://github.com/Frankeo/interview-tool/pulls?q=is%3Apr+reviewed-by%3Atnovau" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/mceledm"><img src="https://avatars0.githubusercontent.com/u/8907724?v=4" width="100px;" alt=""/><br /><sub><b>María Celeste de Majo</b></sub></a><br /><a href="https://github.com/Frankeo/interview-tool/pulls?q=is%3Apr+reviewed-by%3Amceledm" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
