@@ -4,8 +4,9 @@
 
 ## Interview Tool
 
-![CI build](https://github.com/Frankeo/interview-challenges/workflows/CI%20build/badge.svg)
-![Package CD](https://github.com/Frankeo/interview-challenges/workflows/Package%20CD/badge.svg)
+![Build](https://github.com/Frankeo/interview-challenges/workflows/Build/badge.svg)
+![Publish](https://github.com/Frankeo/interview-challenges/workflows/Publish/badge.svg)
+![CodeQL](https://github.com/Frankeo/interview-challenges/workflows/CodeQL/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-challenges/badge)](https://www.codefactor.io/repository/github/frankeo/interview-challenges)
 ![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
 [![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-challenges)](https://dependabot.com)

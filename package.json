@@ -1,6 +1,6 @@
 {
   "name": "interview-tool",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "<p align=\"center\">\r   <a href=\"\" rel=\"noopener\">\r  <img width=200px height=200px src=\"https://i.imgur.com/6wj0hh6.jpg\" alt=\"Project logo\"></a>\r </p>",
   "bin": "./index.js",
   "scripts": {
