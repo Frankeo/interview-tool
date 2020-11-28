@@ -21,14 +21,14 @@ describe('testing handler', () => {
     validateProjectIntegrity.mockImplementation(() => { throw new Error(errorMessage) })
     await handler(obj);
     expect(logError).toBeCalledTimes(1);
-    expect(logError).toBeCalledWith(Error(errorMessage));
+    expect(logError).toBeCalledWith(errorMessage);
   });
 
   test('should call logError if saveInDb throw Error', async () => {
     saveInDb.mockImplementation(() => { throw new Error(errorMessage) })
     await handler(obj);
     expect(logError).toBeCalledTimes(1);
-    expect(logError).toBeCalledWith(Error(errorMessage));
+    expect(logError).toBeCalledWith(errorMessage);
   });
 
   test('should call logComplete if nothing happens', async () => {

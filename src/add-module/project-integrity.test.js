@@ -68,7 +68,7 @@ describe('validateProjectDifficultyAndTopic function', () => {
   test("should throw WRONG_TOPIC when second keyword is not valid topic", () => {
     fs.readJSON.mockReturnValue({ keywords: ["easy", "invalid"] });
     expect(
-      async () => await validateProjectDifficultyAndTopic(folderName)
+      async () => await validateProjectDifficultyAndTopic(projectPath)
     ).rejects.toThrowError(WRONG_TOPIC);
   });
 });
