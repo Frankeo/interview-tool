@@ -1,11 +1,9 @@
 describe("testing LogError", () => {
-  const { logError } = require("./formatting");
+  const {logError} = require("./formatting");
   const signale = require("signale");
   jest.mock("signale");
 
-  beforeEach(() => {
-    signale.fatal = jest.fn();
-  });
+  beforeEach(() => { signale.fatal = jest.fn(); });
 
   it("should log a text in red bold", () => {
     const text = "pepe";
@@ -16,14 +14,12 @@ describe("testing LogError", () => {
 });
 
 describe("testing logInfo", () => {
-  const { logInfo } = require("./formatting");
+  const {logInfo} = require("./formatting");
   const chalk = require("chalk");
   const signale = require("signale");
   jest.mock("signale");
 
-  beforeEach(() => {
-    signale.info = jest.fn();
-  });
+  beforeEach(() => { signale.info = jest.fn(); });
 
   it("should log a text in green bold", () => {
     const text = "pepe";
@@ -34,14 +30,12 @@ describe("testing logInfo", () => {
 });
 
 describe("testing logComplete", () => {
-  const { logComplete } = require("./formatting");
+  const {logComplete} = require("./formatting");
   const chalk = require("chalk");
   const signale = require("signale");
   jest.mock("signale");
 
-  beforeEach(() => {
-    signale.complete = jest.fn();
-  });
+  beforeEach(() => { signale.complete = jest.fn(); });
 
   it("should log a text in green bold", () => {
     const text = "pepe";
@@ -49,9 +43,9 @@ describe("testing logComplete", () => {
     logComplete(text, declaration);
     expect(signale.complete).toHaveBeenCalledTimes(1);
     expect(signale.complete).toHaveBeenCalledWith({
-      message: chalk.bold(text),
-      prefix: " ",
-      suffix: chalk.grey(`(${declaration})`),
+      message : chalk.bold(text),
+      prefix : " ",
+      suffix : chalk.grey(`(${declaration})`),
     });
   });
 });

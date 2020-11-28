@@ -1,5 +1,5 @@
-const { getAllChallenges } = require("../db/db-management");
-const { logInfo, logResultTable, logError } = require("../services/formatting");
+const {getAllChallenges} = require("../db/db-management");
+const {logInfo, logResultTable, logError} = require("../services/formatting");
 
 exports.command = "list";
 
