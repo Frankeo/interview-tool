@@ -1,3 +1,4 @@
+// TODO: Remove unused constants and add new ones
 // TOOL PARAMS
 const WITH_TEST_PARAM = "--with-tests";
 const PROJECT_PARAM = "-p";
