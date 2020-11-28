@@ -44,13 +44,13 @@ const ARRAYS = "arrays";
 
 // Program Mode
 const ProgramMode = {
-  ADD: "add",
-  SELECT: "select",
+  ADD : "add",
+  SELECT : "select",
 };
 
-const difficultyLevel = [EASY, NORMAL, HARD, CRAZY];
+const difficultyLevel = [ EASY, NORMAL, HARD, CRAZY ];
 
-const topics = [NUMBERS, STRINGS, DATA_TYPES, ARRAYS];
+const topics = [ NUMBERS, STRINGS, DATA_TYPES, ARRAYS ];
 
 module.exports = {
   WITH_TEST_PARAM,

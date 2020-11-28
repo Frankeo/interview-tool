@@ -1,18 +1,18 @@
-const { handler } = require("./command");
+const {handler} = require("./command");
 const {
   createOutputFolder,
   addProjectConfig,
 } = require("../services/output-project");
 jest.mock("../services/output-project");
-const { logComplete, logError } = require("../services/formatting");
+const {logComplete, logError} = require("../services/formatting");
 jest.mock("../services/formatting");
 
 describe("testing handler", () => {
   const errorMessage = "errorMessage";
   const obj = {
-    topic: "randomText1",
-    difficulty: "randomText2",
-    projectName: "randomText3",
+    topic : "randomText1",
+    difficulty : "randomText2",
+    projectName : "randomText3",
   };
 
   beforeEach(() => {
@@ -21,18 +21,16 @@ describe("testing handler", () => {
   });
 
   test("should call logError if createOutputFolder throw Error", async () => {
-    createOutputFolder.mockImplementation(() => {
-      throw new Error(errorMessage);
-    });
+    createOutputFolder.mockImplementation(
+        () => { throw new Error(errorMessage); });
     await handler(obj);
     expect(logError).toHaveBeenCalledTimes(1);
     expect(logError).toHaveBeenCalledWith(Error(errorMessage));
   });
 
   test("should call logError if addProjectConfig throw Error", async () => {
-    addProjectConfig.mockImplementation(() => {
-      throw new Error(errorMessage);
-    });
+    addProjectConfig.mockImplementation(
+        () => { throw new Error(errorMessage); });
     await handler(obj);
     expect(logError).toHaveBeenCalledTimes(1);
     expect(logError).toHaveBeenCalledWith(Error(errorMessage));
