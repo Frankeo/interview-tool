@@ -1,4 +1,3 @@
-const path = require("path");
 const { validateProjectIntegrity } = require("./project-integrity");
 const { saveInDb } = require("../db/db-management");
 const { logComplete, logError } = require("../services/formatting");

@@ -25,8 +25,8 @@ describe("testing handler", () => {
       throw new Error(errorMessage);
     });
     await handler(obj);
-    expect(logError).toBeCalledTimes(1);
-    expect(logError).toBeCalledWith(Error(errorMessage));
+    expect(logError).toHaveBeenCalledTimes(1);
+    expect(logError).toHaveBeenCalledWith(Error(errorMessage));
   });
 
   test("should call logError if addProjectConfig throw Error", async () => {
@@ -34,14 +34,14 @@ describe("testing handler", () => {
       throw new Error(errorMessage);
     });
     await handler(obj);
-    expect(logError).toBeCalledTimes(1);
-    expect(logError).toBeCalledWith(Error(errorMessage));
+    expect(logError).toHaveBeenCalledTimes(1);
+    expect(logError).toHaveBeenCalledWith(Error(errorMessage));
   });
 
   test("should call logComplete if nothing happens", async () => {
     createOutputFolder.mockImplementation(() => Promise.resolve());
     addProjectConfig.mockImplementation(() => Promise.resolve());
     await handler(obj);
-    expect(logComplete).toBeCalledTimes(1);
+    expect(logComplete).toHaveBeenCalledTimes(1);
   });
 });
