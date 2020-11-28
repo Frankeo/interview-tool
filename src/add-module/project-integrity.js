@@ -16,7 +16,7 @@ const path = require("path");
 const { cwd } = require("process");
 const Listr = require("listr");
 const execa = require("execa");
-const { FOLDER_NOT_FOUND } = require('../constants');
+const { FOLDER_NOT_FOUND } = require("../constants");
 
 /**
  * @param  {string} projectFolder
@@ -30,8 +30,9 @@ const validateProjectIntegrity = async (projectFolder) => {
       title: "Validate directory path",
       task: async () => {
         projectPath = path.resolve(cwd(), projectFolder);
-        if (!(await fs.pathExists(projectPath))) throw new Error(FOLDER_NOT_FOUND);
-      }
+        if (!(await fs.pathExists(projectPath)))
+          throw new Error(FOLDER_NOT_FOUND);
+      },
     },
     {
       title: "Validate project Difficulty and Topic",

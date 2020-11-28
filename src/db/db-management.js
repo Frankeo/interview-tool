@@ -23,7 +23,7 @@ const saveInDb = ({
   exerciseFile,
   projectName,
   topic,
-  difficulty
+  difficulty,
 }) => {
   const createTableStatement =
     "CREATE TABLE IF NOT EXISTS challenges " +

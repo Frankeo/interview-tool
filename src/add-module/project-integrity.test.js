@@ -19,7 +19,7 @@ jest.mock("path");
 const execa = require("execa");
 jest.mock("execa");
 
-describe('validateProjectDifficultyAndTopic function', () => {
+describe("validateProjectDifficultyAndTopic function", () => {
   const projectPath = "SomeFolder";
 
   beforeEach(() => {
@@ -83,7 +83,9 @@ describe("runTestsOverProject function", () => {
     execa.mockImplementation((_, keyword) => {
       if (keyword == "install") throw new Error(error);
     });
-    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(error);
+    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(
+      error
+    );
   });
 
   test("should return an Error when tests throw an Error", () => {
@@ -91,7 +93,9 @@ describe("runTestsOverProject function", () => {
     execa.mockImplementation((_, keyword) => {
       if (keyword == "test") throw new Error(error);
     });
-    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(error);
+    expect(async () => await runTestsOverProject().run()).rejects.toThrowError(
+      error
+    );
   });
 
   test("should NO return anything when install and test are OK", async () => {

@@ -15,7 +15,7 @@
  * @property  {string} project
  * @property  {boolean} noTests
  */
- 
+
 /**
  * @typedef projectInfoSearch
  * @property {string} projectName
@@ -23,10 +23,8 @@
  * @property {string} difficulty
  */
 
- /**
+/**
  * @typedef outputProjectInfo
  * @property {Buffer} testContent
  * @property {Buffer} instructionsContent
  */
-
- 
