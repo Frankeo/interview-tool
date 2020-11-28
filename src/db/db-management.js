@@ -23,7 +23,7 @@ const saveInDb = ({
   exerciseFile,
   projectName,
   topic,
-  difficulty
+  difficulty,
 }) => {
   const createTableStatement =
     "CREATE TABLE IF NOT EXISTS challenges " +
@@ -79,10 +79,22 @@ const getAllChallenges = () =>
     db.all(query, (_err, rows) => resolve(rows));
   });
 
+/**
+ * @param  {projectInfoSearch} infoSearch
+ * @returns {Promise<outputProjectInfo?>}
+ */
+const existProjectBy = (infoSearch) =>
+  new Promise((resolve) => {
+    const { projectName, topic, difficulty } = infoSearch;
+    const query = `SELECT EXISTS(SELECT 1 FROM challenges WHERE name=?1 AND topic=?2 AND difficulty=?3)`;
+    db.get(query, [projectName, topic, difficulty], (_err, row) => resolve(row));
+  });
+
 module.exports = {
   connectToDb,
   saveInDb,
   selectProjectByName,
   selectProjectByCriteria,
   getAllChallenges,
+  existProjectBy
 };
