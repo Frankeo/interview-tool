@@ -59,7 +59,7 @@ exports.handler = async ({ topic, difficulty, project, noTests }) => {
         task: async () => {
           await createOutputProject(projectInfo, noTests);
         },
-      }
+      },
     ]).run();
     // TODO: Remove output folder after deploy.
     deployProjectToCodeSandbox();
