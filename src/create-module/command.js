@@ -43,6 +43,6 @@ exports.handler = async ({ topic, difficulty, projectName }) => {
     }]).run();
     logComplete(projectName, 'created in current path');
   } catch (e) {
-    logError(e);
+    logError(e.message);
   }
 };

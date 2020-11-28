@@ -14,8 +14,7 @@ exports.handler = async () => {
     }
     logInfo('Interview challenges');
     logResultTable(projects);
-  } catch (error) {
-    
-    logError(error);
+  } catch (e) {
+    logError(e.message);
   }
 }
