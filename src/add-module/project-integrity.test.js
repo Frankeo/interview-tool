@@ -77,6 +77,7 @@ describe("runTestsOverProject function", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
+  
 
   test("should return an Error when install throw an Error", () => {
     const error = "error";
