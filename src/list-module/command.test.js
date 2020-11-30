@@ -34,6 +34,6 @@ describe('testing handler', () => {
         getAllChallenges.mockImplementation(() => { throw new Error(error);} );
         await handler();
         expect(logError).toBeCalledTimes(1);
-        expect(logError).toBeCalledWith(Error(error));
+        expect(logError).toBeCalledWith(error);
     });
 });

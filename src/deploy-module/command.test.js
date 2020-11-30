@@ -24,6 +24,6 @@ describe('testing handler', () => {
         deployProjectToCodeSandbox.mockImplementation(() => { throw new Error(errorMessage) })
         await handler(obj);
         expect(logError).toBeCalledTimes(1);
-        expect(logError).toBeCalledWith(Error(errorMessage));
+        expect(logError).toBeCalledWith(errorMessage);
     });
 });
