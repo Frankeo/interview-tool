@@ -61,8 +61,9 @@ exports.handler = async ({ topic, difficulty, project, noTests }) => {
         },
       },
     ]).run();
+    // TODO: Remove output folder after deploy.
     deployProjectToCodeSandbox();
-  } catch (error) {
-    logError(error);
+  } catch (e) {
+    logError(e.message);
   }
 };

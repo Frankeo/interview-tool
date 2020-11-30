@@ -25,6 +25,6 @@ describe("testing handler", () => {
     });
     await handler(obj);
     expect(logError).toHaveBeenCalledTimes(1);
-    expect(logError).toHaveBeenCalledWith(Error(errorMessage));
+    expect(logError).toHaveBeenCalledWith(errorMessage);
   });
 });

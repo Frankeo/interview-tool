@@ -35,6 +35,6 @@ describe("testing handler", () => {
     });
     await handler();
     expect(logError).toHaveBeenCalledTimes(1);
-    expect(logError).toHaveBeenCalledWith(Error(error));
+    expect(logError).toHaveBeenCalledWith(error);
   });
 });

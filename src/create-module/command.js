@@ -16,10 +16,7 @@ exports.describe =
  */
 exports.builder = (yargs) =>
   yargs
-    .positional("projectName", {
-      type: "string",
-      description: "project Name",
-    })
+    .positional("projectName", { type: "string", description: "project Name" })
     .option("t", {
       alias: "topic",
       choices: topics,
@@ -55,6 +52,6 @@ exports.handler = async ({ topic, difficulty, projectName }) => {
     ]).run();
     logComplete(projectName, "created in current path");
   } catch (e) {
-    logError(e);
+    logError(e.message);
   }
 };

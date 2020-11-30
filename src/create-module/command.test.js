@@ -26,7 +26,7 @@ describe("testing handler", () => {
     });
     await handler(obj);
     expect(logError).toHaveBeenCalledTimes(1);
-    expect(logError).toHaveBeenCalledWith(Error(errorMessage));
+    expect(logError).toHaveBeenCalledWith(errorMessage);
   });
 
   test("should call logError if addProjectConfig throw Error", async () => {
@@ -35,7 +35,7 @@ describe("testing handler", () => {
     });
     await handler(obj);
     expect(logError).toHaveBeenCalledTimes(1);
-    expect(logError).toHaveBeenCalledWith(Error(errorMessage));
+    expect(logError).toHaveBeenCalledWith(errorMessage);
   });
 
   test("should call logComplete if nothing happens", async () => {
