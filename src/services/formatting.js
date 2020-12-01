@@ -13,7 +13,6 @@ const logComplete = (text, declaration) =>
 
 const logTable = (list) => {
   const table = new consolePrinter.Table();
-  console.log(table);
   table.addRows(list);
   table.printTable();
 };
