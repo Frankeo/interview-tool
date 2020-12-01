@@ -1,14 +1,14 @@
 const { handler } = require('./command');
 const { getAllChallenges } = require("../db/db-management");
 jest.mock("../db/db-management");
-const { logInfo, logResultTable, logError } = require("../services/formatting");
+const { logInfo, logTable, logError } = require("../services/formatting");
 jest.mock("../services/formatting");
 
 describe('testing handler', () => {
 
     beforeEach(() => {
         logInfo.mockReset();
-        logResultTable.mockReset();
+        logTable.mockReset();
         logError.mockReset();
     });
 
@@ -25,8 +25,8 @@ describe('testing handler', () => {
         await handler();
         expect(logInfo).toBeCalledTimes(1);
         expect(logInfo).toBeCalledWith('Interview challenges');
-        expect(logResultTable).toBeCalledTimes(1);
-        expect(logResultTable).toBeCalledWith(projects);
+        expect(logTable).toBeCalledTimes(1);
+        expect(logTable).toBeCalledWith(projects);
     });
 
     test('should call logError if getAllChallenges throw an Error', async () => {
