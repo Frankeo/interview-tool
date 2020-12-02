@@ -21,7 +21,7 @@ const logComplete = (text, declaration) =>
 const logResultTable = (list) => {
   list.forEach((row) => {
     for (const elem in row) {
-      if (row.hasOwnProperty(elem)) {
+      if (Object.prototype.hasOwnProperty.call(row, elem)) {
         row[elem] += "    ";
       }
     }

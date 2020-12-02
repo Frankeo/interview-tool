@@ -5,6 +5,8 @@
   "bin": "./index.js",
   "scripts": {
     "ship": "codesandbox src/output/",
+    "lint": "eslint ./ --fix",
+    "lint:ci": "eslint ./",
     "test": "jest --watch",
     "test:ci": "jest",
     "coverage": "jest --coverage",
@@ -25,7 +27,6 @@
   },
   "homepage": "https://github.com/Frankeo/interview-challenges#readme",
   "dependencies": {
-    "@types/jest": "26.0.15",
     "chalk": "4.1.0",
     "cliff": "0.1.10",
     "codesandbox": "2.1.16",
@@ -33,14 +34,20 @@
     "execa": "4.1.0",
     "find-up": "5.0.0",
     "fs-extra": "9.0.1",
-    "jest": "26.6.3",
     "listr": "0.14.3",
     "signale": "1.4.0",
     "sqlite3": "5.0.0",
     "yargs": "16.1.1"
   },
   "devDependencies": {
-    "coveralls": "3.1.0"
+    "jest": "26.6.3",
+    "@types/jest": "26.0.15",
+    "coveralls": "3.1.0",
+    "eslint": "7.14.0",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-jest": "24.1.3",
+    "eslint-plugin-prettier": "3.1.4",
+    "prettier": "2.2.1"
   },
   "engines": {
     "node": ">=10.14.2"
