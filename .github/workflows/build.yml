@@ -16,7 +16,7 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run test:ci
-      - run: npm run make-readme
+      - run: npm run coveralls
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
