@@ -3,7 +3,9 @@
         "AUTOINCREMENT",
         "ROWID",
         "consola",
+        "coverallsapp",
         "execa",
+        "lcov",
         "nargs",
         "signale",
         "subcommands"
