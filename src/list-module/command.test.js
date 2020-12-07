@@ -6,13 +6,6 @@ jest.mock("../services/formatting");
 
 describe("testing handler", () => {
   beforeEach(() => {
-    logInfo.mockReset();
-    logTable.mockReset();
-    logError.mockReset();
-  });
-
-  beforeEach(() => {
-    logInfo.mockReset();
     logTable.mockReset();
     logError.mockReset();
   });
