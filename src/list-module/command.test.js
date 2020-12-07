@@ -11,11 +11,11 @@ describe("testing handler", () => {
     logError.mockReset();
   });
 
-    beforeEach(() => {
-        logInfo.mockReset();
-        logTable.mockReset();
-        logError.mockReset();
-    });
+  beforeEach(() => {
+    logInfo.mockReset();
+    logTable.mockReset();
+    logError.mockReset();
+  });
 
   test("should call logInfo if getAllChallenges not return any project", async () => {
     getAllChallenges.mockImplementation(() => undefined);
