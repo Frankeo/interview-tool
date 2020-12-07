@@ -9,6 +9,8 @@
     "lint:ci": "eslint ./",
     "test": "jest --watch",
     "test:ci": "jest --coverage",
+    "husky": "npm run lint && npm run test:ci",
+    "husky:ci": "npm run lint:ci && npm run test:ci && npm run coveralls",
     "coveralls": "coveralls < coverage/lcov.info"
   },
   "repository": {

@@ -15,8 +15,7 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run test:ci
-      - run: npm run coveralls
+      - run: npm run husky:ci
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
