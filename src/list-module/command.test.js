@@ -8,6 +8,7 @@ describe("testing handler", () => {
   beforeEach(() => {
     logTable.mockReset();
     logError.mockReset();
+    logInfo.mockReset();
   });
 
   test("should call logInfo if getAllChallenges not return any project", async () => {
