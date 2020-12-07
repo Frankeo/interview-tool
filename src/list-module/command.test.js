@@ -7,7 +7,7 @@ jest.mock("../services/formatting");
 describe("testing handler", () => {
   beforeEach(() => {
     logInfo.mockReset();
-    logResultTable.mockReset();
+    logTable.mockReset();
     logError.mockReset();
   });
 
@@ -30,8 +30,8 @@ describe("testing handler", () => {
     await handler();
     expect(logInfo).toHaveBeenCalledTimes(1);
     expect(logInfo).toHaveBeenCalledWith("Interview challenges");
-    expect(logResultTable).toHaveBeenCalledTimes(1);
-    expect(logResultTable).toHaveBeenCalledWith(projects);
+    expect(logTable).toHaveBeenCalledTimes(1);
+    expect(logTable).toHaveBeenCalledWith(projects);
   });
 
   test("should call logError if getAllChallenges throw an Error", async () => {
