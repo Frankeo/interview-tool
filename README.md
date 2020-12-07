@@ -8,7 +8,7 @@
 ![Publish](https://github.com/Frankeo/interview-challenges/workflows/Publish/badge.svg)
 ![CodeQL](https://github.com/Frankeo/interview-challenges/workflows/CodeQL/badge.svg)
 ![CodeFactor](https://www.codefactor.io/repository/github/frankeo/interview-tool/badge)
-![Coverage Status](https://img.shields.io/coveralls/github/Frankeo/interview-challenges)
+[![Coverage Status](https://coveralls.io/repos/github/Frankeo/interview-tool/badge.svg)](https://coveralls.io/github/Frankeo/interview-tool)
 ![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=Frankeo/interview-tool)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->

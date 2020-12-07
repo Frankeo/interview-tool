@@ -1,5 +1,5 @@
 const { getAllChallenges } = require("../db/db-management");
-const { logInfo, logResultTable, logError } = require("../services/formatting");
+const { logInfo, logTable, logError } = require("../services/formatting");
 
 exports.command = "list";
 
@@ -13,7 +13,7 @@ exports.handler = async () => {
       return;
     }
     logInfo("Interview challenges");
-    logResultTable(projects);
+    logTable(projects);
   } catch (e) {
     logError(e.message);
   }
