@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "<p align=\"center\">\r   <a href=\"\" rel=\"noopener\">\r  <img width=200px height=200px src=\"https://i.imgur.com/6wj0hh6.jpg\" alt=\"Project logo\"></a>\r </p>",
   "bin": "./index.js",
+  "private": false,
   "scripts": {
     "ship": "codesandbox src/output/",
     "postinstall": "husky install",
@@ -15,12 +16,6 @@
     "husky": "npm run lint && npm run test:ci",
     "husky:ci": "npm run lint:ci && npm run test:ci && npm run coveralls",
     "coveralls": "coveralls < coverage/lcov.info"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo '[Husky] pre-commit'"
-    }
-
   },
   "repository": {
     "type": "git",
