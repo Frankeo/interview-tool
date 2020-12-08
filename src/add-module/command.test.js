@@ -1,20 +1,22 @@
 const { handler } = require("./command");
-const { validateProjectIntegrity } = require("./project-integrity");
+const { validateProjectIntegrity, hasFiles, getDirectories } = require("./project-integrity");
 jest.mock("./project-integrity");
 const { saveInDb } = require("../db/db-management");
 jest.mock("../db/db-management");
 const { logComplete, logError } = require("../services/formatting");
 jest.mock("../services/formatting");
 
-describe("testing handler", () => {
+const obj = {
+  directoryName: "randomText",
+};
+
+describe("testing handler for single Folder", () => {
   const errorMessage = "errorMessage";
-  const obj = {
-    directoryName: "randomText",
-  };
 
   beforeEach(() => {
     logComplete.mockReset();
     logError.mockReset();
+    hasFiles.mockImplementation(() => true);
   });
 
   test("should call logError if validateProjectIntegrity throw Error", async () => {
@@ -42,5 +44,21 @@ describe("testing handler", () => {
     saveInDb.mockImplementation(() => Promise.resolve());
     await handler(obj);
     expect(logComplete).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("Testing handling alternatives", () => {
+  beforeEach(() => {
+    getDirectories.mockReset();
+  })
+  test("should call 'getDirectories' when Has no files", async () => {
+    hasFiles.mockImplementation(() => false);
+    await handler(obj);
+    expect(getDirectories).toHaveBeenCalledTimes(1);
+  });
+  test("should NOT call 'getDirectories' when Has files", async () => {
+    hasFiles.mockImplementation(() => true);
+    await handler(obj);
+    expect(getDirectories).not.toHaveBeenCalled();
   });
 });
