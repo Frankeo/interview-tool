@@ -13,10 +13,10 @@ const {
   SRC_NOT_FOUND_ERROR,
 } = require("../constants");
 const path = require("path");
-const { cwd } = require("process");
+const {cwd} = require("process");
 const Listr = require("listr");
 const execa = require("execa");
-const { FOLDER_NOT_FOUND } = require("../constants");
+const {FOLDER_NOT_FOUND} = require("../constants");
 
 /**
  * @param  {string} projectFolder
@@ -27,50 +27,44 @@ const validateProjectIntegrity = async (projectFolder) => {
   let projectPath;
   await new Listr([
     {
-      title: "Validate directory path",
-      task: async () => {
+      title : "Validate directory path",
+      task : async () => {
         projectPath = path.resolve(cwd(), projectFolder);
         if (!(await fs.pathExists(projectPath)))
           throw new Error(FOLDER_NOT_FOUND);
       },
     },
     {
-      title: "Validate project Difficulty and Topic",
-      task: async () =>
-        (projectSpecs = await validateProjectDifficultyAndTopic(projectPath)),
+      title : "Validate project Difficulty and Topic",
+      task : async () =>
+          (projectSpecs = await validateProjectDifficultyAndTopic(projectPath)),
     },
     {
-      title: "Testing project",
-      task: () => runTestsOverProject(projectPath),
+      title : "Testing project",
+      task : () => runTestsOverProject(projectPath),
     },
   ]).run();
-  return getProjectInfo(
-    projectPath,
-    projectSpecs.topic,
-    projectSpecs.difficulty
-  );
+  return getProjectInfo(projectPath, projectSpecs.topic,
+                        projectSpecs.difficulty);
 };
 
 /**
  * @param  {string} projectPath
  */
-const runTestsOverProject = (projectPath) =>
-  new Listr([
-    {
-      title: "Install project dependencies",
-      task: async () =>
-        await execa("npm", ["install"], {
-          cwd: projectPath,
-        }),
-    },
-    {
-      title: "Running project tests",
-      task: async () =>
-        await execa("npm", ["test"], {
-          cwd: projectPath,
-        }),
-    },
-  ]);
+const runTestsOverProject = (projectPath) => new Listr([
+  {
+    title : "Install project dependencies",
+    task : async () => await execa("npm", [ "install" ], {
+      cwd : projectPath,
+    }),
+  },
+  {
+    title : "Running project tests",
+    task : async () => await execa("npm", [ "test" ], {
+      cwd : projectPath,
+    }),
+  },
+]);
 
 /**
  * @param  {string} projectPath
@@ -80,7 +74,7 @@ const validateProjectDifficultyAndTopic = async (projectPath) => {
   if (!(await fs.pathExists(packagePath)))
     throw new Error(PACKAGE_JSON_NOT_FOUND);
 
-  const { keywords } = await fs.readJSON(packagePath);
+  const {keywords} = await fs.readJSON(packagePath);
 
   if (!Array.isArray(keywords) || keywords.length != 2)
     throw new Error(CATEGORIZATION_ERROR);
@@ -88,11 +82,12 @@ const validateProjectDifficultyAndTopic = async (projectPath) => {
   if (!difficultyLevel.includes(keywords[0]))
     throw new Error(WRONG_DIFFICULTY_LEVEL);
 
-  if (!topics.includes(keywords[1])) throw new Error(WRONG_TOPIC);
+  if (!topics.includes(keywords[1]))
+    throw new Error(WRONG_TOPIC);
 
   return {
-    difficulty: keywords[0],
-    topic: keywords[1],
+    difficulty : keywords[0],
+    topic : keywords[1],
   };
 };
 
@@ -106,7 +101,7 @@ const getProjectInfo = async (projectPath, topic, difficulty) => {
   const exerciseFile = await getFile(projectPath, EXERCISE_FILE, "error3");
   const projectName = projectPath.replace(/\/$/, "").split("/").pop();
   return {
-    mainFile: indexFile,
+    mainFile : indexFile,
     testFile,
     exerciseFile,
     projectName,
@@ -123,7 +118,8 @@ const getProjectInfo = async (projectPath, topic, difficulty) => {
  */
 const getFile = async (projectPath, fileName, error) => {
   const filePath = path.resolve(projectPath, fileName);
-  if (!(await fs.pathExists(filePath))) throw new Error(error);
+  if (!(await fs.pathExists(filePath)))
+    throw new Error(error);
   return fs.readFile(filePath);
 };
 
@@ -132,19 +128,18 @@ const getFile = async (projectPath, fileName, error) => {
  * @returns {boolean}
  */
 const hasFiles = (projectPath) =>
-  !!fs
-    .readdirSync(projectPath, { withFileTypes: true })
-    .filter((dirent) => !dirent.isDirectory()).length;
+    !!fs.readdirSync(projectPath, {withFileTypes : true})
+          .filter((dirent) => !dirent.isDirectory())
+          .length;
 
 /**
  * @param  {string} projectPath
  * @returns {string[]}
  */
 const getDirectories = (projectPath) =>
-  fs
-    .readdirSync(projectPath, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => path.join(projectPath, dirent.name));
+    fs.readdirSync(projectPath, {withFileTypes : true})
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => path.join(projectPath, dirent.name));
 
 module.exports = {
   hasFiles,
