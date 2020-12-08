@@ -1,5 +1,9 @@
 const { handler } = require("./command");
-const { validateProjectIntegrity, hasFiles, getDirectories } = require("./project-integrity");
+const {
+  validateProjectIntegrity,
+  hasFiles,
+  getDirectories,
+} = require("./project-integrity");
 jest.mock("./project-integrity");
 const { saveInDb } = require("../db/db-management");
 jest.mock("../db/db-management");
@@ -50,7 +54,7 @@ describe("testing handler for single Folder", () => {
 describe("Testing handling alternatives", () => {
   beforeEach(() => {
     getDirectories.mockReset();
-  })
+  });
   test("should call 'getDirectories' when Has no files", async () => {
     hasFiles.mockImplementation(() => false);
     await handler(obj);
