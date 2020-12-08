@@ -16,7 +16,10 @@ exports.describe =
  */
 exports.builder = (yargs) =>
   yargs
-    .positional("projectName", { type: "string", description: "set project's name" })
+    .positional("projectName", {
+      type: "string",
+      description: "set project's name",
+    })
     .option("t", {
       alias: "topic",
       choices: topics,
