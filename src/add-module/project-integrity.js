@@ -127,7 +127,28 @@ const getFile = async (projectPath, fileName, error) => {
   return fs.readFile(filePath);
 };
 
+/**
+ * @param  {string} projectPath
+ * @returns {boolean}
+ */
+const hasFiles = (projectPath) =>
+  !!fs
+    .readdirSync(projectPath, { withFileTypes: true })
+    .filter((dirent) => !dirent.isDirectory()).length;
+
+/**
+ * @param  {string} projectPath
+ * @returns {string[]}
+ */
+const getDirectories = (projectPath) =>
+  fs
+    .readdirSync(projectPath, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => path.join(projectPath, dirent.name));
+
 module.exports = {
+  hasFiles,
+  getDirectories,
   getFile,
   getProjectInfo,
   validateProjectIntegrity,
