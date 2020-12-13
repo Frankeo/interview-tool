@@ -115,7 +115,6 @@ Github Actions for creating a [npm](https://www.npm.org) package
 
 ![Version](https://img.shields.io/github/package-json/v/Frankeo/interview-challenges)
 ![ReleaseDate](https://img.shields.io/github/release-date/Frankeo/interview-challenges)
-![Size](https://img.shields.io/bundlephobia/min/interview-tool)
 ![Downloads](https://img.shields.io/npm/dm/interview-tool)
 ![Last commit](https://img.shields.io/github/last-commit/Frankeo/interview-challenges)
 
