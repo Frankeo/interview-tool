@@ -1,7 +1,7 @@
 {
   "name": "interview-tool",
-  "version": "1.0.4",
-  "description": "<p align=\"center\">\r   <a href=\"\" rel=\"noopener\">\r  <img width=200px height=200px src=\"https://i.imgur.com/6wj0hh6.jpg\" alt=\"Project logo\"></a>\r </p>",
+  "version": "2.0.0",
+  "description": "This repo contains a CLI tool for create, save and deploy exercises for interviews.",
   "bin": "./index.js",
   "private": false,
   "scripts": {
@@ -51,8 +51,8 @@
     "eslint": "7.15.0",
     "eslint-config-prettier": "7.0.0",
     "eslint-plugin-jest": "24.1.3",
-    "eslint-plugin-prettier": "3.2.0",
-    "husky": "5.0.4",
+    "eslint-plugin-prettier": "3.3.0",
+    "husky": "5.0.6",
     "jest": "26.6.3",
     "pinst": "2.1.1",
     "prettier": "2.2.1"
