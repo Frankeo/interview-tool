@@ -5,6 +5,7 @@ const {
 } = require("./project-integrity");
 const { saveInDb, existProjectBy } = require("../db/db-management");
 const { logComplete, logError } = require("../services/formatting");
+const { DUPLICATED_PROJECT } = require("../constants");
 
 exports.command = "add <directoryName>";
 
@@ -23,7 +24,7 @@ exports.builder = (yargs) => {
 const commonHandlerLogic = async (directoryName) => {
   const projectInfo = await validateProjectIntegrity(directoryName);
   const projectExists = await existProjectBy(projectInfo);
-  if (projectExists) throw new Error("Duplicated project");
+  if (projectExists) throw new Error(DUPLICATED_PROJECT);
   await saveInDb(projectInfo);
   logComplete(projectInfo.projectName, "in the collection");
 };
