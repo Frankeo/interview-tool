@@ -11,6 +11,8 @@ const {
   TEST_FILE,
   EXERCISE_FILE,
   SRC_NOT_FOUND_ERROR,
+  TEST_NOT_FOUND_ERROR,
+  EXERCISE_NOT_FOUND_ERROR,
 } = require("../constants");
 const path = require("path");
 const { cwd } = require("process");
@@ -102,8 +104,12 @@ const validateProjectDifficultyAndTopic = async (projectPath) => {
  */
 const getProjectInfo = async (projectPath, topic, difficulty) => {
   const indexFile = await getFile(projectPath, SRC_FILE, SRC_NOT_FOUND_ERROR);
-  const testFile = await getFile(projectPath, TEST_FILE, "error2");
-  const exerciseFile = await getFile(projectPath, EXERCISE_FILE, "error3");
+  const testFile = await getFile(projectPath, TEST_FILE, TEST_NOT_FOUND_ERROR);
+  const exerciseFile = await getFile(
+    projectPath,
+    EXERCISE_FILE,
+    EXERCISE_NOT_FOUND_ERROR
+  );
   const projectName = projectPath.replace(/\/$/, "").split("/").pop();
   return {
     mainFile: indexFile,
