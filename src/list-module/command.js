@@ -1,5 +1,6 @@
 const { getAllChallenges } = require("../db/db-management");
 const { logInfo, logTable, logError } = require("../services/formatting");
+const { NOT_PROJECT_MESSAGE } = require("../constants");
 
 exports.command = "list";
 
@@ -9,7 +10,7 @@ exports.handler = async () => {
   try {
     const projects = await getAllChallenges();
     if (!projects) {
-      logInfo("Not project to show, please add one");
+      logInfo(NOT_PROJECT_MESSAGE);
       return;
     }
     logInfo("Interview challenges");
