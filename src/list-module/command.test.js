@@ -1,4 +1,5 @@
 const { handler } = require("./command");
+const { NOT_PROJECT_MESSAGE } = require("../constants");
 const { getAllChallenges } = require("../db/db-management");
 jest.mock("../db/db-management");
 const { logInfo, logTable, logError } = require("../services/formatting");
@@ -15,7 +16,7 @@ describe("testing handler", () => {
     getAllChallenges.mockImplementation(() => undefined);
     await handler();
     expect(logInfo).toHaveBeenCalledTimes(1);
-    expect(logInfo).toHaveBeenCalledWith("Not project to show, please add one");
+    expect(logInfo).toHaveBeenCalledWith(NOT_PROJECT_MESSAGE);
   });
 
   test("should call logInfo if getAllChallenges return any project", async () => {

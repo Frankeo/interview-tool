@@ -4,7 +4,11 @@ const {
 } = require("../db/db-management");
 const { createOutputProject } = require("../services/output-project");
 const { deployProjectToCodeSandbox } = require("../services/deploy");
-const { topics, difficultyLevel } = require("../constants");
+const {
+  topics,
+  difficultyLevel,
+  PROJECT_NOT_FOUND_ERROR,
+} = require("../constants");
 const { logError } = require("../services/formatting");
 const Listr = require("listr");
 
@@ -51,7 +55,7 @@ exports.handler = async ({ topic, difficulty, project, noTests }) => {
           projectInfo = project
             ? await selectProjectByName(project)
             : await selectProjectByCriteria(topic, difficulty);
-          if (!projectInfo) throw new Error("project not found");
+          if (!projectInfo) throw new Error(PROJECT_NOT_FOUND_ERROR);
         },
       },
       {
