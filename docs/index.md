@@ -1,36 +1,56 @@
-## Welcome to GitHub Pages
+## Interview Tool
 
-You can use the [editor on GitHub](https://github.com/Frankeo/interview-tool/edit/feature/61-github-pages/docs/index.md) to maintain and preview the content for your website in Markdown files.
+### Getting Started
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#### Features Supported
 
-### Markdown
+:heavy_check_mark: Check project status before saving.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+:heavy_check_mark: Avoid adding duplicated projects
 
-```markdown
-Syntax highlighted code block
+:heavy_check_mark: Add multiple projects in batch when contained in the same
+folder.
 
-# Header 1
-## Header 2
-### Header 3
+:heavy_check_mark: Rich console information feedback.
 
-- Bulleted
-- List
+#### Windows
 
-1. Numbered
-2. List
+#### Ubuntu
 
-**Bold** and _Italic_ and `Code` text
+#### Mac
 
-[Link](url) and ![Image](src)
+#### [Other OS](https://frankeo.github.io/interview-tool/getting-started/)
+
+### Commands
+
+```
+interview-tool <command>
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+- [`add <folderName>`](https://frankeo.github.io/interview-tool/add/)
 
-### Jekyll Themes
+- [`list`](https://frankeo.github.io/interview-tool/list/)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Frankeo/interview-tool/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- [`create <projectName>`](https://frankeo.github.io/interview-tool/create/)
+
+- [`deploy [-p] [-t] [-d] [noTests]`](https://frankeo.github.io/interview-tool/deploy/)
+
+- [`completion`](https://frankeo.github.io/interview-tool/completion/)
+
+### New Features
+
+:white_large_square: Manual Testing on Windows.
+
+:white_large_square: Manual Testing on Linux (Ubuntu and Debian).
+
+:white_large_square: Create Integration test for avoid repeat manual testing
+over different OS.
+
+:white_large_square: Create Wiki for developer easy rampage.
+
+:white_large_square: Track Analytics usage of the CLI.
+
+### [Changelogs](https://frankeo.github.io/interview-tool/changelog/)
 
 ### Support or Contact
 
