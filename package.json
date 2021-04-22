@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/Frankeo/interview-challenges#readme",
   "dependencies": {
-    "chalk": "4.1.0",
+    "chalk": "4.1.1",
     "codesandbox": "2.1.16",
     "console-table-printer": "2.5.1",
     "execa": "5.0.0",
