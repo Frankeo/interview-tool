@@ -35,7 +35,7 @@
     "chalk": "4.1.0",
     "codesandbox": "2.1.16",
     "console-table-printer": "2.5.1",
-    "execa": "5.0.0",
+    "execa": "5.0.1",
     "find-up": "5.0.0",
     "fs-extra": "9.0.1",
     "listr": "0.14.3",
