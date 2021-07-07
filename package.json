@@ -44,7 +44,7 @@
     "yargs": "16.2.0"
   },
   "devDependencies": {
-    "@types/jest": "26.0.20",
+    "@types/jest": "26.0.24",
     "commitizen": "4.2.2",
     "coveralls": "3.1.0",
     "cz-conventional-changelog": "3.3.0",
